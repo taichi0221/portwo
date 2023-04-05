@@ -10,14 +10,15 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
   end
+
   def create
-    if params[:job_type].present?
+    @question = Question.new(question_params)
+    if @question.save
       client = OpenAI::Client.new(api_key: ENV["OPENAI_API_KEY"])
-      prompt = "私がなりたい職業は #{job_type} です"
+      prompt = "言語は #{params[:question][:language]} です。"
       response = client.completions(
-      
         engine: 'davinci',
-        prompt: params[:prompt],
+        prompt: prompt,
         max_tokens: 5
       )
 
