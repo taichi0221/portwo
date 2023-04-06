@@ -22,7 +22,7 @@ https://docs.google.com/spreadsheets/d/1J09HsYv7tMp43BW9BSOZNGPDQYHzzfYuqF1Ogveq
 # 実装予定の機能
 
 # データベース設計
-
+[![Image from Gyazo](https://i.gyazo.com/0cca3aa9e7e05e90e5600546884ad6ba.png)](https://gyazo.com/0cca3aa9e7e05e90e5600546884ad6ba)
 # 画面遷移図
 
 # ローカルでの動作方法
@@ -43,6 +43,7 @@ https://docs.google.com/spreadsheets/d/1J09HsYv7tMp43BW9BSOZNGPDQYHzzfYuqF1Ogveq
 ### Association
 
 - has_many :questions
+- has_many :answers
 
 ## questions テーブル
 
@@ -65,7 +66,9 @@ https://docs.google.com/spreadsheets/d/1J09HsYv7tMp43BW9BSOZNGPDQYHzzfYuqF1Ogveq
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
 | question          | integer    | null: false ,foreign_key: true |
+| user              | integer    | null: false ,foreign_key: true |
 
 ### Association
 
 - belongs_to :question
+- belongs_to :user
