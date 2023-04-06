@@ -13,6 +13,11 @@
 ActiveRecord::Schema.define(version: 2023_04_05_055910) do
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "language", null: false
+    t.string "framework", null: false
+    t.string "hobby", null: false
+    t.string "former_job"
+    t.string "desired_engineer", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
