@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
-  #belongs_to :user
-  #has_one :answer
+  belongs_to :user
+  has_one :answer
 
   validates :language, presence: true
   validates :framework, presence: true

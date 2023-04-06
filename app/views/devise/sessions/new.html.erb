@@ -1,0 +1,56 @@
+</body>
+  <%= render "shared/header" %>
+
+  <div class="row align-items-md-stretch justify-content-center">
+    <div class="col-md-8">
+      <div class="h-100 p-5 text-white bg-dark rounded-3">
+        <h2>ログイン</h2>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+
+          <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+          <% end %>
+
+        <div class="actions">
+          <%= f.submit "ログイン" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="h-100 p-5 bg-light border rounded-3">
+        <h2>Add borders</h2>
+        <p> content for equal-height.</p>
+        <%= link_to new_question_path, class: 'btn btn-outline-secondary', type: 'button' do %>
+          聞いてみる
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-muted py-5">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Back to top</a>
+      </p>
+      <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+      <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+    </div>
+  </footer>
+
+  
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+</body>

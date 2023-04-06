@@ -1,28 +1,9 @@
 </body>
-  <div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-      </a>
-
-      <%# <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
-      </ul> %>
-
-      <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2">Login</button>
-        <button type="button" class="btn btn-primary">Sign-up</button>
-      </div>
-    </header>
-  </div>
-
+  <%= render "shared/header" %>
   <div class="row align-items-md-stretch justify-content-center">
     <div class="col-md-8">
       <div class="h-100 p-5 text-white bg-dark rounded-3">
+      <h2>プロフィール入力</h2>
         <%= form_with model: @question, url: questions_path do |f| %>
           <%= f.label :language %>
           <%= f.text_field :language, class: "form-control", placeholder: "言語を入力してください" %>
@@ -32,20 +13,17 @@
           <%= f.text_field :hobby, class: "form-control", placeholder: "趣味を入力してください" %> 
           <%= f.label :former_job %>
           <%= f.text_field :former_job, class: "form-control", placeholder: "前職を入力してください" %> 
-          <%= f.label :desired_engineer %> 
-          <%= f.text_field :desired_engineer, class: "form-control", placeholder: "目指すエンジニア像を入力してください" %>
-
-          <%= f.submit "登録する", class: "btn btn-primary" %>
-        <% end %>
-
+        <div class="form-group">
+          <%= f.label :desired_engineer, '目指すエンジニア像' %>
+          <%= f.select :desired_engineer, options_for_select([['ソフトウェアエンジニア', 'ソフトウェアエンジニア'], ['データエンジニア', 'データエンジニア'], ['ネットワークエンジニア', 'ネットワークエンジニア']]), { include_blank: 'エンジニア像を選択してください' }, class: 'form-control' %>
+        </div>
       </div>
     </div>
     <div class="col-md-3">
       <div class="h-100 p-5 bg-light border rounded-3">
         <h2>Add borders</h2>
         <p> content for equal-height.</p>
-        <%= link_to new_question_path, class: 'btn btn-outline-secondary', type: 'button' do %>
-          聞いてみる
+        <%= f.submit "聞く！", class: "btn btn-outline-secondary" %>
         <% end %>
       </div>
     </div>
@@ -66,15 +44,3 @@
 
       
 </body>
-
-<%# <%= f.label :framework %>
-  <%# <%= f.text_field :framework, class: "form-control", placeholder: "フレームワークを入力してください" %> 
-
-  <%# <%= f.label :hobby %>
-  <%# <%= f.text_field :hobby, class: "form-control", placeholder: "趣味を入力してください" %> 
-
-  <%# <%= f.label :former_job %>
-  <%# <%= f.text_field :former_job, class: "form-control", placeholder: "前職を入力してください" %> 
-
-  <%# <%= f.label :desired_engineer %> 
-  <%# <%= f.text_field :desired_engineer, class: "form-control", placeholder: "目指すエンジニア像を入力してください" %>

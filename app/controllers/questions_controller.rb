@@ -1,10 +1,10 @@
 class QuestionsController < ApplicationController
-
+  before_action :authenticate_user!, except: :index
   require 'openai'
 
 
   def index
-    
+    @answer = session.delete(:answer)
   end
   
   def new
@@ -22,14 +22,16 @@ class QuestionsController < ApplicationController
       max_tokens: 5
     )
 
-    @generated_text = response.choices[0].text
+    @answer = Answer.new(answer: response.choices[0].text, question: @question, user_id: current_user.id)
+    @answer.save
     redirect_to root_path
   end
 
   private
 
   def question_params
-    params.require(:question).permit(:language,:framework, :hobby, :former_job, :desired_engineer)
+    params.require(:question).permit(:language,:framework, :hobby, :former_job, :desired_engineer).merge(user_id: current_user.id)
   end
 
+  
 end
