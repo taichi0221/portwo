@@ -59,3 +59,4 @@ group :production do
 end
 gem 'openai'
 gem 'pry-rails'
+gem 'devise'
