@@ -24,7 +24,7 @@ https://docs.google.com/spreadsheets/d/1J09HsYv7tMp43BW9BSOZNGPDQYHzzfYuqF1Ogveq
 # データベース設計
 [![Image from Gyazo](https://i.gyazo.com/0cca3aa9e7e05e90e5600546884ad6ba.png)](https://gyazo.com/0cca3aa9e7e05e90e5600546884ad6ba)
 # 画面遷移図
-
+[![Image from Gyazo](https://i.gyazo.com/b5d7987450f800df9b0a0f70d11e00f0.png)](https://gyazo.com/b5d7987450f800df9b0a0f70d11e00f0)
 # ローカルでの動作方法
 
 # 工夫したポイント
