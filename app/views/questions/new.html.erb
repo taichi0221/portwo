@@ -26,6 +26,15 @@
         <%= form_with model: @question, url: questions_path do |f| %>
           <%= f.label :language %>
           <%= f.text_field :language, class: "form-control", placeholder: "言語を入力してください" %>
+          <%= f.label :framework %>
+          <%= f.text_field :framework, class: "form-control", placeholder: "フレームワークを入力してください" %>
+          <%= f.label :hobby %>
+          <%= f.text_field :hobby, class: "form-control", placeholder: "趣味を入力してください" %> 
+          <%= f.label :former_job %>
+          <%= f.text_field :former_job, class: "form-control", placeholder: "前職を入力してください" %> 
+          <%= f.label :desired_engineer %> 
+          <%= f.text_field :desired_engineer, class: "form-control", placeholder: "目指すエンジニア像を入力してください" %>
+
           <%= f.submit "登録する", class: "btn btn-primary" %>
         <% end %>
 

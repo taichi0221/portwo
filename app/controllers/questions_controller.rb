@@ -13,6 +13,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    @question.save
     client = OpenAI::Client.new(api_key: ENV["OPENAI_API_KEY"])
     prompt = "言語は #{params[:question][:language]} です。"
     response = client.completions(
@@ -28,7 +29,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:language, :framework, :hobby, :former_job, :desired_engineer)
+    params.require(:question).permit(:language,:framework, :hobby, :former_job, :desired_engineer)
   end
 
 end
