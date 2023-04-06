@@ -3,6 +3,7 @@
   <div class="row align-items-md-stretch justify-content-center">
     <div class="col-md-8">
       <div class="h-100 p-5 text-white bg-dark rounded-3">
+      <h2>プロフィール入力</h2>
         <%= form_with model: @question, url: questions_path do |f| %>
           <%= f.label :language %>
           <%= f.text_field :language, class: "form-control", placeholder: "言語を入力してください" %>
@@ -15,17 +16,14 @@
           <%= f.label :desired_engineer %> 
           <%= f.text_field :desired_engineer, class: "form-control", placeholder: "目指すエンジニア像を入力してください" %>
 
-          <%= f.submit "登録する", class: "btn btn-primary" %>
-        <% end %>
-
+      
       </div>
     </div>
     <div class="col-md-3">
       <div class="h-100 p-5 bg-light border rounded-3">
         <h2>Add borders</h2>
         <p> content for equal-height.</p>
-        <%= link_to new_question_path, class: 'btn btn-outline-secondary', type: 'button' do %>
-          聞いてみる
+        <%= f.submit "聞く！", class: "btn btn-outline-secondary" %>
         <% end %>
       </div>
     </div>
