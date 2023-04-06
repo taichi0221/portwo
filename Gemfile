@@ -60,3 +60,4 @@ end
 gem 'openai'
 gem 'pry-rails'
 gem 'devise'
+gem 'rspec-rails', '~> 4.0.0'
