@@ -68,7 +68,7 @@ https://docs.google.com/spreadsheets/d/1J09HsYv7tMp43BW9BSOZNGPDQYHzzfYuqF1Ogveq
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
 | question          | integer    | null: false ,foreign_key: true |
-| user              | integer    | null: false ,foreign_key: true |
+| answer            | text       | null: false ,foreign_key: true |
 
 ### Association
 

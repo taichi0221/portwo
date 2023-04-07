@@ -8,12 +8,11 @@ class QuestionsController < ApplicationController
   end
   
   def new
-    @question = Question.new
+    @question_answer = QuestionAnswer.new
   end
 
   def create
-    @question = Question.new(question_params)
-    @question.save
+    @question_answer = QuestionAnswer.new(question_params)
     client = OpenAI::Client.new(api_key: ENV["OPENAI_API_KEY"])
     prompt = "言語は #{params[:question][:language]} です。"
     response = client.completions(
@@ -21,19 +20,21 @@ class QuestionsController < ApplicationController
       prompt: prompt,
       max_tokens: 5
     )
-
-    @answer = Answer.new(answer: response.choices[0].text, question: @question, user_id: current_user.id)
-    @answer.save
+    answer = response.choices[0].text
+    @question_answer.save
     redirect_to root_path
+    # @answer = Answer.new(answer: response.choices[0].text, question: @question, user_id: current_user.id)
+    # @answer.save
+    # redirect_to root_path
   end
 
   private
 
   def question_params
-    params.require(:question).permit(:language,:framework, :hobby, :former_job, :desired_engineer).merge(user_id: current_user.id)
+    params.require(:question_answer).permit(:language,:framework, :hobby, :former_job, :desired_engineer).merge(user_id: current_user.id)
   end
 
-  def answer_params
-    params.permit(:answer).merge(question_id: @question.id)
-  end
+  # def answer_params
+  #   params.permit(:answer).merge(question_id: @question.id)
+  # end
 end
