@@ -6,6 +6,9 @@ class QuestionsController < ApplicationController
   def index
     @users = User.all
     @user_count = User.count
+    @question = Question.all
+    @question_count = Question.count
+    
   end
   
   def new
@@ -22,7 +25,7 @@ class QuestionsController < ApplicationController
       response = client.chat(
       parameters: {
           model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: "Hello!" }],
+          messages: [{ role: "user", content: "今日の晩御飯どうしようかな？？" }],
       })
     
     #response.dig("choices", 0, "message", "content")

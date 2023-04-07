@@ -65,3 +65,4 @@ gem 'devise'
 gem 'actioncable'
 gem "ruby-openai"
 gem "rainbow"
+gem 'impressionist'
