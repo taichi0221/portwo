@@ -33,5 +33,7 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:language,:framework, :hobby, :former_job, :desired_engineer).merge(user_id: current_user.id)
   end
 
-  
+  def answer_params
+    params.permit(:answer).merge(question_id: @question.id)
+  end
 end
