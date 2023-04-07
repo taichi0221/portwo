@@ -4,11 +4,14 @@ class QuestionsController < ApplicationController
   require 'rainbow'
 
   def index
-    @users = User.all
+    #@users = User.all
     @user_count = User.count
-    @question = Question.all
+    #@questions = Question.all
     @question_count = Question.count
-    
+    #@question = Question.find(32).language
+    @question = current_user.questions.last
+    @answer = @question.answer
+
   end
   
   def new
