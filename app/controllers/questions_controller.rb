@@ -1,10 +1,11 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: :index
-  require 'openai'
-
+  require 'ruby/openai'
+  require 'rainbow'
 
   def index
-    @answer = session.delete(:answer)
+    @users = User.all
+    @user_count = User.count
   end
   
   def new
@@ -12,17 +13,21 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    require 'ruby/openai'
+
     @question = Question.new(question_params)
     @question.save
-    client = OpenAI::Client.new(api_key: ENV["OPENAI_API_KEY"])
-    prompt = "言語は #{params[:question][:language]} です。"
-    response = client.completions(
-      engine: 'curie',
-      prompt: prompt,
-      max_tokens: 5
-    )
+    client = OpenAI::Client.new(access_token:ENV["OPENAI_API_KEY"])
 
-    @answer = Answer.new(answer: response.choices[0].text, question: @question, user_id: current_user.id)
+      response = client.chat(
+      parameters: {
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: "Hello!" }],
+      })
+    
+    #response.dig("choices", 0, "message", "content")
+    #@messages = response.dig("choices", 0, "message", "content")
+    @answer = Answer.new(answer: response.dig("choices", 0, "message", "content"), question: @question, user_id: current_user.id)
     @answer.save
     redirect_to root_path
   end

@@ -62,3 +62,6 @@ end
 gem 'openai'
 gem 'pry-rails'
 gem 'devise'
+gem 'actioncable'
+gem "ruby-openai"
+gem "rainbow"
