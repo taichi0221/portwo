@@ -1,7 +1,7 @@
 </body>
   <%= render "shared/header" %>
 
-  <% if user_signed_in? %>
+  <% if user_signed_in? && current_user.questions.exists? %>
   <div class="row align-items-md-stretch justify-content-center">
     <div class="col-md-8">
       <div class="h-100 p-5 text-white bg-dark rounded-3">
@@ -45,6 +45,10 @@
         <br>
 
         <h2>解答数: <%= @question_count %></h2>
+
+        <br>
+
+        <%= link_to "プロフィール入力", new_question_path, class: 'btn btn-outline-secondary', type: 'button' %>
       </div>
       
     </div>
