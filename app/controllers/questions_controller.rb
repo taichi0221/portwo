@@ -34,7 +34,10 @@ class QuestionsController < ApplicationController
       })
     
     @answer = Answer.new(answer: response.dig("choices", 0, "message", "content"), question: @question, user_id: current_user.id)
-    @answer.save
+    if @answer.save
+      @question.save
+    else
+    end
     redirect_to root_path
   end
 
