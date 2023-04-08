@@ -1,5 +1,5 @@
-</body>
-  <%= render "shared/header" %>
+<%= render "shared/header" %>
+  
   <div class="row align-items-md-stretch justify-content-center">
     <div class="col-md-8">
       <div class="h-100 p-5 text-white bg-dark rounded-3">
@@ -15,7 +15,21 @@
           <%= f.text_field :former_job, class: "form-control", placeholder: "前職を入力してください" %> 
         <div class="form-group">
           <%= f.label :desired_engineer, '目指すエンジニア像' %>
-          <%= f.select :desired_engineer, options_for_select([['ソフトウェアエンジニア', 'ソフトウェアエンジニア'], ['データエンジニア', 'データエンジニア'], ['ネットワークエンジニア', 'ネットワークエンジニア']]), { include_blank: 'エンジニア像を選択してください' }, class: 'form-control' %>
+          <%= f.select :desired_engineer, options_for_select([
+            ['ソフトウェアエンジニア', 'ソフトウェアエンジニア'],
+            ['データエンジニア', 'データエンジニア'],
+            ['ネットワークエンジニア', 'ネットワークエンジニア'],
+            ['セキュリティエンジニア', 'セキュリティエンジニア'],
+            ['フロントエンドエンジニア', 'フロントエンドエンジニア'],
+            ['バックエンドエンジニア', 'バックエンドエンジニア'],
+            ['AIエンジニア', 'AIエンジニア'],
+            ['モバイルエンジニア', 'モバイルエンジニア'],
+            ['IoTエンジニア', 'IoTエンジニア'],
+            ['組込エンジニア', '組込エンジニア']
+          ]), { include_blank: 'エンジニア像を選択してください' }, class: 'form-control' %><br>
+          <%= f.submit "聞く！", class: "btn btn-primary" %>
+
+        
         </div>
       </div>
     </div>
@@ -23,24 +37,10 @@
       <div class="h-100 p-5 bg-light border rounded-3">
         <h2>Add borders</h2>
         <p> content for equal-height.</p>
-        <%= f.submit "聞く！", class: "btn btn-outline-secondary" %>
+        <%#= f.submit "聞く！", class: "btn btn-outline-secondary" %>
         <% end %>
       </div>
     </div>
   </div>
 
-  <footer class="text-muted py-5">
-    <div class="container">
-      <p class="float-end mb-1">
-        <a href="#">Back to top</a>
-      </p>
-      <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-      <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
-    </div>
-  </footer>
-
-  
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-      
-</body>
+<%= render "shared/footer" %>

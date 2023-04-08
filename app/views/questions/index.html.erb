@@ -1,7 +1,31 @@
 </body>
   <%= render "shared/header" %>
 
-
+  <% if user_signed_in? && current_user.questions.exists? %>
+  <div class="row align-items-md-stretch justify-content-center">
+    <div class="col-md-8">
+      <div class="h-100 p-5 text-white bg-dark rounded-3">
+        <h2>Port-Helperからの解答</h2>
+        <p>
+        <%= @answer.answer %>
+        </p>
+        <h2>プロフィール</h2>
+        プログラミング言語 : <%= @question.language %><br>
+        フレームワーク : <%= @question.framework %><br>
+        趣味 : <%= @question.hobby %><br>
+        経験したお仕事 : <%= @question.former_job %><br>
+        希望するエンジニア : <%= @question.desired_engineer %><br>
+        </div>
+    </div>
+    <div class="col-md-3">
+      <div class="h-100 p-5 bg-light border rounded-3">
+        <h2>Add borders</h2>
+        <p> content for equal-height.</p>
+        <%= link_to "プロフィール入力", new_question_path, class: 'btn btn-outline-secondary', type: 'button' %>
+      </div>
+    </div>
+  </div>
+  <% else %>
   <div class="row align-items-md-stretch justify-content-center">
     <div class="col-md-8">
       <div class="h-100 p-5 text-white bg-dark rounded-3">
@@ -13,14 +37,23 @@
     </div>
     <div class="col-md-3">
       <div class="h-100 p-5 bg-light border rounded-3">
-        <h2>Add borders</h2>
-        <p> content for equal-height.</p>
-        <%= link_to new_question_path, class: 'btn btn-outline-secondary', type: 'button' do %>
-          プロフィール入力
-        <% end %>
+        
+        <br>
+
+        <h2>ユーザー数: <%= @user_count %></h2>
+
+        <br>
+
+        <h2>解答数: <%= @question_count %></h2>
+
+        <br>
+
+        <%= link_to "プロフィール入力", new_question_path, class: 'btn btn-outline-secondary', type: 'button' %>
       </div>
+      
     </div>
   </div>
+  <% end %>
 
   <%= render "shared/footer" %>
       
