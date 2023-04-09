@@ -1,4 +1,6 @@
 function post (){
+  console.log("js読み込み")
+
   const submit = document.getElementById("submit");
   submit.addEventListener("click", () => {
     console.log("movieスタート")
@@ -11,4 +13,4 @@ function post (){
   });
  };
  
- window.addEventListener('load', post);
+document.addEventListener("turbolinks:load", post)

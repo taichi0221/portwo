@@ -3,9 +3,11 @@
   <div class="row align-items-md-stretch justify-content-center">
     <div class="col-md-8">
       <div class="h-100 p-5 text-white bg-dark rounded-3">
+        <%= form_with model: @question, url: questions_path do |f| %>
+          <%= render 'shared/error_messages', model: f.object %>
         <div id ="after_submit" >
           <h2>プロフィール入力</h2>
-            <%= form_with model: @question, url: questions_path do |f| %>
+            
               <%= f.label :language %>
               <%= f.text_field :language, class: "form-control", placeholder: "言語を入力してください" %>
               <%= f.label :framework %>
@@ -34,8 +36,8 @@
         </div>
         <div id = "before_submit" >
           <div class="ratio ratio-16x9">
-  <iframe src="https://www.youtube.com/embed/fMEYb0W3_ec?rel=0" title="YouTubeビデオ" allowfullscreen></iframe>
-</div>
+            <iframe src="https://www.youtube.com/embed/fMEYb0W3_ec?rel=0" title="YouTubeビデオ" allowfullscreen></iframe>
+          </div>
         </div>
     
       </div>
