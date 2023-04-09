@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 import "bootstrap"
 import "../stylesheets/application"
+require("../input")
 require("../submit")
 
 

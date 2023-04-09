@@ -27,18 +27,19 @@ class QuestionsController < ApplicationController
       response = client.chat(
       parameters: {
           model: "gpt-3.5-turbo",
-          # messages: [{ role: "user", content: "hello!" }],
-          # max_tokens: 10
-          messages: [{ role: "user", content: "あなたは優秀なキャリアアドバイザーです。私はエンジニアになりたいです。得意なプログラミング言語は#{params[:question][:language]}、フレームワークは#{params[:question][:framework]}です。趣味は#{params[:question][:hobby]}、前職は#{params[:question][:former_job]}です。#{params[:question][:desired_engineer]}になりたいです。ポートフォリオ案を300文字以内におしえてください。" }],
-          max_tokens: 400
+          messages: [{ role: "user", content: "hello!" }],
+          max_tokens: 10
+          # messages: [{ role: "user", content: "あなたは優秀なキャリアアドバイザーです。私はエンジニアになりたいです。得意なプログラミング言語は#{params[:question][:language]}、フレームワークは#{params[:question][:framework]}です。趣味は#{params[:question][:hobby]}、前職は#{params[:question][:former_job]}です。#{params[:question][:desired_engineer]}になりたいです。ポートフォリオ案を1個教えてください。あなたからの解答は必ず300文字以内にしてください。" }],
+          # max_tokens: 400
       })
     
     @answer = Answer.new(answer: response.dig("choices", 0, "message", "content"), question: @question, user_id: current_user.id)
     if @answer.save
       @question.save
+      redirect_to root_path
     else
+      render :new
     end
-    redirect_to root_path
   end
 
   private
