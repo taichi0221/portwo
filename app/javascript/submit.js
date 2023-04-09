@@ -1,8 +1,7 @@
 function post (){
-  console.log("js読み込み")
-
+  console.log("submit_js読み込み")
   const submit = document.getElementById("submit");
-  submit.addEventListener("click", () => {
+    submit.addEventListener("click", () => {
     console.log("movieスタート")
     const after_submit = document.getElementById("after_submit")
     after_submit.setAttribute("style", "display:none;")
@@ -11,6 +10,6 @@ function post (){
     const before_submit2 = document.getElementById("before_submit2")
     before_submit2.setAttribute("style", "display:block;")
   });
- };
+};
  
 document.addEventListener("turbolinks:load", post)
