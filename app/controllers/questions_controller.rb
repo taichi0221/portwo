@@ -27,10 +27,10 @@ class QuestionsController < ApplicationController
       response = client.chat(
       parameters: {
           model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: "hello!" }],
-          max_tokens: 10
-          #messages: [{ role: "user", content: "あなたは優秀なキャリアアドバイザーです。私はエンジニアになりたいです。私の得意なプログラミング言語は#{params[:question][:language]}、フレームワークは#{params[:question][:framework]}です。趣味は#{params[:question][:hobby]}、前職は#{params[:question][:former_job]}です。#{params[:question][:desired_engineer]}になりたいです。作れば良いポートフォリオ案を簡潔に１個ください。" }],
-          #max_tokens: 240
+          # messages: [{ role: "user", content: "hello!" }],
+          # max_tokens: 10
+          messages: [{ role: "user", content: "あなたは優秀なキャリアアドバイザーです。私はエンジニアになりたいです。得意なプログラミング言語は#{params[:question][:language]}、フレームワークは#{params[:question][:framework]}です。趣味は#{params[:question][:hobby]}、前職は#{params[:question][:former_job]}です。#{params[:question][:desired_engineer]}になりたいです。ポートフォリオ案を300文字以内におしえてください。" }],
+          max_tokens: 400
       })
     
     @answer = Answer.new(answer: response.dig("choices", 0, "message", "content"), question: @question, user_id: current_user.id)
