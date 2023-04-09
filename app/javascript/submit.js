@@ -1,6 +1,7 @@
 function post (){
   const submit = document.getElementById("submit");
   submit.addEventListener("click", () => {
+    console.log("movieスタート")
     const after_submit = document.getElementById("after_submit")
     after_submit.setAttribute("style", "display:none;")
     const before_submit = document.getElementById("before_submit")
