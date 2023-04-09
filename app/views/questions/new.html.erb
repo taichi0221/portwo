@@ -1,45 +1,41 @@
 <%= render "shared/header" %>
-  
   <div class="row align-items-md-stretch justify-content-center">
     <div class="col-md-8">
       <div class="h-100 p-5 text-white bg-dark rounded-3">
         <%= form_with model: @question, url: questions_path ,local: true do |f| %>
-          <%= render 'shared/error_messages', model: f.object %>
-          <h2>プロフィール入力</h2>
         <div id ="after_submit" >
-            
-              <%= f.label :language %>
-              <%= f.text_field :language, id: "language_input",class: "form-control", placeholder: "言語を入力してください" %>
-              <%= f.label :framework %>
-              <%= f.text_field :framework, id: "framework_input",class: "form-control", placeholder: "フレームワークを入力してください" %>
-              <%= f.label :hobby %>
-              <%= f.text_field :hobby, id: "hobby_input", class: "form-control", placeholder: "趣味を入力してください" %> 
-              <%= f.label :former_job %>
-              <%= f.text_field :former_job, class: "form-control", placeholder: "前職を入力してください" %> 
+          <h2>プロフィール入力</h2>
+          <%= f.label :language, 'プログラミング言語' %>
+          <%= f.text_field :language, id: "language_input",class: "form-control", placeholder: "得意なプログラミング言語を入力してください" %>
+          <%= f.label :framework, 'フレームワーク'%>
+          <%= f.text_field :framework, id: "framework_input",class: "form-control", placeholder: "得意なフレームワークを入力してください" %>
+          <%= f.label :hobby, '趣味' %>
+          <%= f.text_field :hobby, id: "hobby_input", class: "form-control", placeholder: "趣味を入力してください" %> 
+          <%= f.label :former_job ,'経験したお仕事（任意）'%>
+          <%= f.text_field :former_job, class: "form-control", placeholder: "前職を入力してください" %> 
           <div class="form-group">
-              <%= f.label :desired_engineer, '目指すエンジニア像' %>
-              <%= f.select :desired_engineer, options_for_select([
-                ['ソフトウェアエンジニア', 'ソフトウェアエンジニア'],
-                ['データエンジニア', 'データエンジニア'],
-                ['ネットワークエンジニア', 'ネットワークエンジニア'],
-                ['セキュリティエンジニア', 'セキュリティエンジニア'],
-                ['フロントエンドエンジニア', 'フロントエンドエンジニア'],
-                ['バックエンドエンジニア', 'バックエンドエンジニア'],
-                ['AIエンジニア', 'AIエンジニア'],
-                ['モバイルエンジニア', 'モバイルエンジニア'],
-                ['IoTエンジニア', 'IoTエンジニア'],
-                ['組込エンジニア', '組込エンジニア']
-              ]), { include_blank: 'エンジニア像を選択してください' }, class: 'form-control', id: "desired_engineer_input" %><br>
-              <%= f.submit "聞く！", class: "btn btn-primary", id: "submit", style: "display:none;"%>
-              <% end %>
+            <%= f.label :desired_engineer, '目指すエンジニア' %>
+            <%= f.select :desired_engineer, options_for_select([
+              ['ソフトウェアエンジニア', 'ソフトウェアエンジニア'],
+              ['データエンジニア', 'データエンジニア'],
+              ['ネットワークエンジニア', 'ネットワークエンジニア'],
+              ['セキュリティエンジニア', 'セキュリティエンジニア'],
+              ['フロントエンドエンジニア', 'フロントエンドエンジニア'],
+              ['バックエンドエンジニア', 'バックエンドエンジニア'],
+              ['AIエンジニア', 'AIエンジニア'],
+              ['モバイルエンジニア', 'モバイルエンジニア'],
+              ['IoTエンジニア', 'IoTエンジニア'],
+              ['WEBデザイナー', 'WEBデザイナー']
+              ]), { include_blank: '目指すエンジニアを選択してください' }, class: 'form-control', id: "desired_engineer_input" %><br>
+            <%= f.submit "聞く！", class: "btn btn-primary", id: "submit", style: "display:none;"%>
           </div>
         </div>
+        <% end %>
         <div id = "before_submit" >
           <div class="ratio ratio-16x9">
             <iframe src="https://www.youtube.com/embed/fMEYb0W3_ec?rel=0" title="YouTubeビデオ" allowfullscreen></iframe>
           </div>
         </div>
-    
       </div>
     </div>      
     <div class="col-md-3">
@@ -51,5 +47,4 @@
       </div>
     </div>
   </div>
-
 <%= render "shared/footer" %>
