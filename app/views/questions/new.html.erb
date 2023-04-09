@@ -5,16 +5,16 @@
         <%= form_with model: @question, url: questions_path ,local: true do |f| %>
         <div id ="after_submit" >
           <h2>プロフィール入力</h2>
-          <%= f.label :language %>
-          <%= f.text_field :language, id: "language_input",class: "form-control", placeholder: "言語を入力してください" %>
-          <%= f.label :framework %>
-          <%= f.text_field :framework, id: "framework_input",class: "form-control", placeholder: "フレームワークを入力してください" %>
-          <%= f.label :hobby %>
+          <%= f.label :language, 'プログラミング言語' %>
+          <%= f.text_field :language, id: "language_input",class: "form-control", placeholder: "得意なプログラミング言語を入力してください" %>
+          <%= f.label :framework, 'フレームワーク'%>
+          <%= f.text_field :framework, id: "framework_input",class: "form-control", placeholder: "得意なフレームワークを入力してください" %>
+          <%= f.label :hobby, '趣味' %>
           <%= f.text_field :hobby, id: "hobby_input", class: "form-control", placeholder: "趣味を入力してください" %> 
-          <%= f.label :former_job %>
+          <%= f.label :former_job ,'経験したお仕事（任意）'%>
           <%= f.text_field :former_job, class: "form-control", placeholder: "前職を入力してください" %> 
           <div class="form-group">
-            <%= f.label :desired_engineer, '目指すエンジニア像' %>
+            <%= f.label :desired_engineer, '目指すエンジニア' %>
             <%= f.select :desired_engineer, options_for_select([
               ['ソフトウェアエンジニア', 'ソフトウェアエンジニア'],
               ['データエンジニア', 'データエンジニア'],
@@ -25,8 +25,8 @@
               ['AIエンジニア', 'AIエンジニア'],
               ['モバイルエンジニア', 'モバイルエンジニア'],
               ['IoTエンジニア', 'IoTエンジニア'],
-              ['組込エンジニア', '組込エンジニア']
-              ]), { include_blank: 'エンジニア像を選択してください' }, class: 'form-control', id: "desired_engineer_input" %><br>
+              ['WEBデザイナー', 'WEBデザイナー']
+              ]), { include_blank: '目指すエンジニアを選択してください' }, class: 'form-control', id: "desired_engineer_input" %><br>
             <%= f.submit "聞く！", class: "btn btn-primary", id: "submit", style: "display:none;"%>
           </div>
         </div>
