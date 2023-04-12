@@ -286,7 +286,7 @@ GEM
     zeitwerk (2.6.7)
 
 PLATFORMS
-  x86_64-linux
+  ruby
 
 DEPENDENCIES
   actioncable
@@ -322,4 +322,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.4.11
+   1.17.2
