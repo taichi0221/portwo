@@ -298,7 +298,8 @@ DEPENDENCIES
   impressionist
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
-  mysql2 (>= 0.4.4)
+  mysql2
+  net-protocol (= 0.2.1)
   openai
   pg
   pry-rails

@@ -13,11 +13,18 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
+COPY . /myapp
 RUN bundle install
+RUN mkdir -p tmp/pids && mkdir -p tmp/sockets && chmod -R 777 tmp
 
-COPY entrypoint.sh /usr/bin/
+COPY entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "/usr/bin/entrypoint.sh"]
 EXPOSE 3000
+
+# puma.sockを配置するディレクトリを作成
+RUN mkdir -p tmp/sockets
+RUN mkdir -p /tmp/public && \
+    cp -rf /myapp/public/* /tmp/public
 
 CMD ["rails", "server", "-b", "0.0.0.0"]

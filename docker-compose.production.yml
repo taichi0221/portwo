@@ -1,0 +1,59 @@
+version: "3.9"
+services:
+  rails:
+    build: .
+    container_name: rails
+    command: bundle exec puma -C config/puma.rb -e production
+    volumes:
+      - .:/myapp
+      - public-data:/myapp/public
+      - tmp-data:/myapp/tmp
+      - log-data:/myapp/log
+      - /myapp/node_modules
+      - ./tmp/pids:/myapp/tmp/pids
+    env_file:
+      - web-variables.env
+    depends_on:
+      - db
+    user: root
+    environment:
+      - RAILS_ENV=production
+      - RAILS_MAX_THREADS=5
+      - PORT=3000
+
+  db:
+    image: mysql:8.0.27
+    container_name: db
+    #command: --default-authentication-plugin=mysql_native_password
+    environment:
+      TZ: Asia/Tokyo
+      MYSQL_ROOT_PASSWORD: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
+      MYSQL_ROOT_HOST: '%'
+      #MYSQL_AUTHENTICATION_PLUGIN: mysql_native_password
+      MYSQL_DATABASE: port_helper_production
+      MYSQL_USER: root
+      MYSQL_PASSWORD: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
+    ports:
+      - "3306:3306"
+    volumes:
+      - db:/var/lib/mysql
+  
+  web:
+    build:
+      context: containers/nginx
+    volumes:
+      - public-data:/myapp/public
+      - tmp-data:/myapp/tmp
+    ports:
+      - 80:80
+    depends_on:
+      - rails
+
+volumes:
+  db:
+    driver: local
+  bundle:
+    driver: local
+  public-data:
+  tmp-data:
+  log-data:
