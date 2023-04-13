@@ -36,4 +36,4 @@ yarn-debug.log*
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-web.variables.env
+web-variables.env
