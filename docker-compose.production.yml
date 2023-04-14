@@ -27,12 +27,12 @@ services:
     #command: --default-authentication-plugin=mysql_native_password
     environment:
       TZ: Asia/Tokyo
-      MYSQL_ROOT_PASSWORD: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_ROOT_HOST: '%'
       #MYSQL_AUTHENTICATION_PLUGIN: mysql_native_password
       MYSQL_DATABASE: port_helper_production
       MYSQL_USER: taichi
-      MYSQL_PASSWORD: <%= ENV['MYSQL_PASSWORD'] %>
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
