@@ -37,6 +37,8 @@ services:
       - "3306:3306"
     volumes:
       - db:/var/lib/mysql
+    env_file:
+      - web-variables.env
   
   web:
     build:
@@ -48,6 +50,8 @@ services:
       - 80:80
     depends_on:
       - rails
+    env_file:
+      - web-variables.env
 
 volumes:
   db:
