@@ -11,6 +11,7 @@ module PortHelper
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.logger = ActiveSupport::Logger.new("log/#{Rails.env}.log")
+    config.assets.paths << Rails.root.join("app", "assets", "stylesheets")
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
