@@ -1,0 +1,32 @@
+<%= render "shared/header" %>
+  <div class="row align-items-md-stretch justify-content-center">
+    <div class="col-md-8">
+      <div class="h-100 p-5 text-white bg-dark rounded-3">
+        <div class='login-flash-message'>
+          <%= flash[:notice] %>
+          <%= flash[:alert] %>
+        </div>
+        <h2>ログイン</h2>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, class: "form-control",autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, class: "form-control",autocomplete: "current-password" %>
+        </div>
+        <br />
+        <div class="actions">
+          <%= f.submit "ログイン" ,class: "btn btn-primary btn-lg btn-light"%>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="h-100 p-5 bg-light border rounded-3">
+        <h2>工事中</h2>
+      </div>
+    </div>
+  </div>
+<%= render "shared/footer" %>
