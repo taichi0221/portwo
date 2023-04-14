@@ -31,8 +31,8 @@ services:
       MYSQL_ROOT_HOST: '%'
       #MYSQL_AUTHENTICATION_PLUGIN: mysql_native_password
       MYSQL_DATABASE: port_helper_production
-      MYSQL_USER: root
-      MYSQL_PASSWORD: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
+      MYSQL_USER: taichi
+      MYSQL_PASSWORD: <%= ENV['MYSQL_PASSWORD'] %>
     ports:
       - "3306:3306"
     volumes:
