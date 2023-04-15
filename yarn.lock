@@ -7581,6 +7581,11 @@ typed-array-length@^1.0.4:
     for-each "^0.3.3"
     is-typed-array "^1.1.9"
 
+typed.js@^2.0.15:
+  version "2.0.15"
+  resolved "https://registry.yarnpkg.com/typed.js/-/typed.js-2.0.15.tgz#1405b0dde97008d6f87264bcd9406f72a72ea31b"
+  integrity sha512-kQNtvm6+dEcUc5sdskEgV17rsdvimQNsDRHnp8PasBY85dYqVoo4TCanakSkfherMN+lZEko5ccMMKJpuR42Fw==
+
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
