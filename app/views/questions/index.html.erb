@@ -4,9 +4,10 @@
     <div class="col-md-8">
       <div class="h-100 p-5 text-white bg-dark rounded-3">
         <h2>Port-Helperからの解答</h2>
-        <p>
-        <%= @answer.answer %>
-        </p>
+        <div id="typed-strings">
+        <p><%= @answer.answer %></p>
+        </div>
+        <span id="typed"></span>
         <h2>プロフィール</h2>
         プログラミング言語 : <%= @question.language %><br>
         フレームワーク : <%= @question.framework %><br>
@@ -27,9 +28,13 @@
     <div class="col-md-8">
       <div class="h-100 p-5 text-white bg-dark rounded-3">
         <h2>Port-Helperの使い方</h2>
+        <div id="typed-strings">
         <p>Port-Helperは、未経験エンジニアによって作られました。作られた目的はあなたのエンジニアとしてのキャリアを支援し、あなたの持つスキルや興味を最大限に引き出し、最適なポートフォリオを作成するためのアドバイスを伝えるためです。
           エンジニアとしての成長は、自分自身が積極的に取り組むことが不可欠です。しかし、Port-Helperが提供するサービスを使うことで、方向性を定め効率的かつ効果的にスキルアップすることができるヒントを得ることができます。私は、あなたのエンジニアとしてのキャリアを支援したいと考えています。
           さあ、あなたも今すぐPort-Helperを使って、自分のスキルアップの可能性を広げましょう！Let's Port-Helper!!!</p>
+        </div>
+        <span id="typed"></span>
+
       </div>
     </div>
     <div class="col-md-3">

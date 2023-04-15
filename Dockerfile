@@ -22,6 +22,11 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["/bin/bash", "/usr/bin/entrypoint.sh"]
 EXPOSE 3000
 
+# Yarnを使ってパッケージをインストール
+COPY package.json /myapp/package.json
+COPY yarn.lock /myapp/yarn.lock
+RUN yarn install
+
 # puma.sockを配置するディレクトリを作成
 RUN mkdir -p tmp/sockets
 RUN mkdir -p /tmp/public && \
