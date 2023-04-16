@@ -1,7 +1,7 @@
 import Typed from 'typed.js';
 
 function post() {
-  console.log("typed_js読み込み")
+  console.log("typed_js2読み込み")
   const submit = document.getElementById("submit");
     submit.addEventListener("click", () => {
     const typed = new Typed('#typed2', {
