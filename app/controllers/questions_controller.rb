@@ -20,7 +20,6 @@ class QuestionsController < ApplicationController
   def create
     require 'ruby/openai'
     @question = Question.new(question_params)
-    @question.save
     client = OpenAI::Client.new(access_token:ENV["OPENAI_API_KEY"])
 
       response = client.chat(
