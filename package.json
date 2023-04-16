@@ -9,7 +9,9 @@
     "@rails/webpacker": "^4.3.0",
     "bootstrap": "^5.2.3",
     "turbolinks": "^5.2.0",
-    "typed.js": "^2.0.15"
+    "typed.js": "^2.0.15",
+    "node-sass": "^8.0.0",
+    "sass-loader": "10"
   },
   "version": "0.1.0",
   "devDependencies": {
