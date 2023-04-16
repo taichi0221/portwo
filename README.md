@@ -14,7 +14,7 @@ OpenAI APIを導入して自然言語処理に取り組んでいます。
 言語：JavaScript, Ruby<br>
 フレームワーク：Ruby on Rails, bootstrap<br>
 データベース：MySQL<br>
-その他：Git, Render<br>
+その他：Git, Docker, AWS, EC2<br>
 
 # 実装した機能についての画像
 [![Image from Gyazo](https://i.gyazo.com/308f1248900e64c872e568f1feace02e.png)](https://gyazo.com/308f1248900e64c872e568f1feace02e)
@@ -41,11 +41,15 @@ https://docs.google.com/spreadsheets/d/1J09HsYv7tMp43BW9BSOZNGPDQYHzzfYuqF1Ogveq
 
 
 # 実装予定の機能
+Dockerを使ったEC2へのデプロイのお知らせ<br>
+画面遷移速度向上及び作業効率化のため：4/16完了しております。<br>
+セキュリティ向上のお知らせ<br>
+このプロジェクトでは、セキュリティの向上を重要視しており、近日中にHTTPからHTTPSへの移行を予定しております。 移行が完了次第、READMEファイルにその旨を追記いたしますので、ご確認ください。<br>
 ポートフォリオ作成に必要なスキルに関する質問と解答機能<br>
 解答結果の共有機能<br>
 エンジニア志望者同士の交流機能<br>
 ポートフォリオ作成に必要なスキルに関する質問と解答機能や、解答結果の共有機能を実装することで、ユーザーがよりスムーズにポートフォリオ作成に取り組むことができるようになります。また、エンジニア志望者同士の交流機能を導入することで、お互いのスキルアップにも繋がります。<br>
-画面遷移速度向上及び作業効率化のため、Dockerを使ったEC2へのデプロイ方法について勉強中です。
+
 
 # データベース設計
 [![Image from Gyazo](https://i.gyazo.com/0cca3aa9e7e05e90e5600546884ad6ba.png)](https://gyazo.com/0cca3aa9e7e05e90e5600546884ad6ba)

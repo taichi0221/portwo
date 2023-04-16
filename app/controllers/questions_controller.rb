@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
           model: "gpt-3.5-turbo",
           # messages: [{ role: "user", content: "hello!" }],
           # max_tokens: 10
-          messages: [{ role: "user", content: "あなたは優秀なキャリアアドバイザーです。私はエンジニアになりたいです。得意なプログラミング言語は#{params[:question][:language]}、フレームワークは#{params[:question][:framework]}です。趣味は#{params[:question][:hobby]}、前職は#{params[:question][:former_job]}です。#{params[:question][:desired_engineer]}になりたいです。解答は簡潔に日本語で300文字以内にしてください。" }],
+          messages: [{ role: "user", content: "私はエンジニアになりたいです。得意なプログラミング言語は#{params[:question][:language]}、フレームワークは#{params[:question][:framework]}です。趣味は#{params[:question][:hobby]}、前職は#{params[:question][:former_job]}です。#{params[:question][:desired_engineer]}になりたいです。解答は簡潔に日本語で300文字以内にしてください。" }],
           max_tokens: 300
       })
     
