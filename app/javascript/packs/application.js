@@ -12,6 +12,7 @@ import "../stylesheets/application"
 import Typed from "typed.js"
 require("../input")
 require("../submit")
+require("../typed_init")
 require("../typed_init2")
 
 
