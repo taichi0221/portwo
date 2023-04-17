@@ -15,7 +15,8 @@ WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 COPY . /myapp
-RUN bundle install
+RUN bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java \
+  && bundle install
 RUN mkdir -p tmp/pids && mkdir -p tmp/sockets && chmod -R 777 tmp
 
 COPY entrypoint.sh /usr/bin/entrypoint.sh
