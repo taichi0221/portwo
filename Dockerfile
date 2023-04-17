@@ -15,6 +15,8 @@ WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 COPY . /myapp
+RUN gem install bundler:2.4.11
+
 RUN bundle install
 RUN mkdir -p tmp/pids && mkdir -p tmp/sockets && chmod -R 777 tmp
 
