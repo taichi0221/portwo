@@ -14,7 +14,7 @@ OpenAI APIを導入して自然言語処理に取り組んでいます。
 言語：JavaScript, Ruby<br>
 フレームワーク：Ruby on Rails, bootstrap<br>
 データベース：MySQL<br>
-その他：Git, Docker, AWS, EC2<br>
+その他：Git, Docker, AWS, EC2, ACM, ELB<br>
 
 # 実装した機能についての画像
 [![Image from Gyazo](https://i.gyazo.com/308f1248900e64c872e568f1feace02e.png)](https://gyazo.com/308f1248900e64c872e568f1feace02e)
@@ -29,7 +29,7 @@ Port-Helperの解答作成中画面<br><br>
 解答作成までの待ち時間が発生する問題に直面し、Ajaxを利用した改善を試みましたが速度の向上には至りませんでした。そこでログを確認したところ、質問と解答のDBへの保存に時間差かあることに気づきました。解答作成に必要な時間がどうしてもかかってしまうため、この問題とは共存するしかないと考え、ユーザビリティを上げるために解答待ちの間に動画を視聴できる仕組みを導入しました。
 
 # URL
-http://54.253.108.220/
+https://portfolio.puchi.blog/
 
 # テスト用アカウント
 hoge@hoge<br>
@@ -42,11 +42,12 @@ https://docs.google.com/spreadsheets/d/1J09HsYv7tMp43BW9BSOZNGPDQYHzzfYuqF1Ogveq
 # 就職活動中に実装完了した機能
 Dockerを使ったEC2へのデプロイ<br>
 画面遷移速度向上及び作業効率化のため：4/16完了しております。<br>
+HTTPからHTTPSへの移行<br>
+セキュリティ向上のため:4/19完了しております<br>
 
 # 実装予定の機能
-セキュリティ向上のお知らせ<br>
-このプロジェクトでは、セキュリティの向上を重要視しており、近日中にHTTPからHTTPSへの移行を予定しております。 移行が完了次第、READMEファイルにその旨を追記いたしますので、ご確認ください。<br>
-<追記>：https通信に変更をするのに非常に苦労しております。4/20までには完成させようと考えています。
+CircleCIとCDを追加<br>
+コードの品質向上、迅速なフィードバックのため<br>
 ポートフォリオ作成に必要なスキルに関する質問と解答機能<br>
 解答結果の共有機能<br>
 エンジニア志望者同士の交流機能<br>
